@@ -1,17 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.querySelector(".menu");
-    const nav = document.querySelector("header nav");
-    const menuIcon = menuBtn.querySelector("i");
+const menuBtn = document.querySelector('.menu');
+const closeBtn = document.querySelector('.close-menu') || document.querySelector('.x');
+const nav = document.querySelector('header nav');
 
-    menuBtn.addEventListener("click", () => {
-        nav.classList.toggle("active");
-        menuBtn.classList.toggle("open");
+function abrirMenu() {
+  if (!nav) return;
+  nav.classList.add('active');
+  if (menuBtn) menuBtn.style.display = 'none';
+  if (closeBtn) closeBtn.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
 
-        // Troca o ícone
-        if (menuBtn.classList.contains("open")) {
-            menuIcon.className = "fi fi-rr-cross-small"; // ícone de "X"
-        } else {
-            menuIcon.className = "fi fi-sr-rectangle-list"; // ícone do menu
-        }
-    });
+function fecharMenu() {
+  if (!nav) return;
+  nav.classList.remove('active');
+  if (closeBtn) closeBtn.style.display = 'none';
+  if (menuBtn) menuBtn.style.display = 'flex';
+  document.body.style.overflow = '';
+}
+
+if (menuBtn) menuBtn.addEventListener('click', abrirMenu);
+if (closeBtn) closeBtn.addEventListener('click', fecharMenu);
+
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', fecharMenu);
 });
