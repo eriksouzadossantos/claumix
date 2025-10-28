@@ -1,51 +1,63 @@
-const menuIcon = document.querySelector(".menu");
-const closeIcon = document.querySelector(".x");
-const nav = document.querySelector("header nav");
-const ctaButton = document.querySelector(".cta-header");
-const links = document.querySelectorAll("header nav ul li a");
+// Seleciona os elementos do menu
+const menuBtn = document.querySelector('.menu');
+const closeBtn = document.querySelector('.x');
+const nav = document.querySelector('header nav');
+const ctaButton = document.querySelector('.cta-header');
 
-// Detecta mobile/tablet
+// Função que verifica se é mobile ou tablet
 function isMobileOrTablet() {
-  return window.innerWidth <= 768;
+  return window.innerWidth <= 1024;
 }
 
-// Abre menu
-menuIcon.addEventListener("click", () => {
-  if (!isMobileOrTablet()) return;
-  nav.classList.add("active");
-  menuIcon.style.display = "none";
-  closeIcon.style.display = "block";
-  ctaButton.classList.add("active");
+// Abre o menu
+menuBtn.addEventListener('click', () => {
+  nav.classList.add('active');
+  closeBtn.style.display = 'block';
+  menuBtn.style.display = 'none';
+  if (ctaButton) ctaButton.classList.add('active');
+  document.body.style.overflow = 'hidden'; // bloqueia rolagem
 });
 
-// Fecha menu
-closeIcon.addEventListener("click", () => {
-  if (!isMobileOrTablet()) return;
-  nav.classList.remove("active");
-  menuIcon.style.display = "flex";
-  closeIcon.style.display = "none";
-  ctaButton.classList.remove("active");
+// Fecha o menu
+closeBtn.addEventListener('click', () => {
+  nav.classList.remove('active');
+  closeBtn.style.display = 'none';
+  menuBtn.style.display = 'flex';
+  if (ctaButton) ctaButton.classList.remove('active');
+  document.body.style.overflow = ''; // libera rolagem
 });
 
-// Fecha menu ao clicar em link
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    if (!isMobileOrTablet()) return;
-    nav.classList.remove("active");
-    menuIcon.style.display = "flex";
-    closeIcon.style.display = "none";
-    ctaButton.classList.remove("active");
+// Fecha o menu ao clicar em um link
+document.querySelectorAll('header nav ul li a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (isMobileOrTablet()) {
+      nav.classList.remove('active');
+      closeBtn.style.display = 'none';
+      menuBtn.style.display = 'flex';
+      if (ctaButton) ctaButton.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 });
 
-// Ajuste ao redimensionar
-window.addEventListener("resize", () => {
-  if (!isMobileOrTablet()) {
-    nav.classList.remove("active");
-    menuIcon.style.display = "none";
-    closeIcon.style.display = "none";
-    ctaButton.classList.remove("active");
+// Corrige o estado do menu ao redimensionar a janela
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1024) {
+    nav.classList.remove('active');
+    closeBtn.style.display = 'none';
+    menuBtn.style.display = 'none';
+    if (ctaButton) ctaButton.classList.remove('active');
+    document.body.style.overflow = '';
   } else {
-    menuIcon.style.display = "flex";
+    menuBtn.style.display = 'flex';
+  }
+});
+
+// Estado inicial ao carregar
+window.addEventListener('load', () => {
+  if (window.innerWidth <= 1024) {
+    menuBtn.style.display = 'flex';
+  } else {
+    menuBtn.style.display = 'none';
   }
 });
