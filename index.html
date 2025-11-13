@@ -14,7 +14,7 @@
 
 <body id="body">
     <div class="wpp">
-        <a href="#"><i class="fi fi-brands-whatsapp"></i></a>
+        <a href="https://wa.me/19991426480"><i class="fi fi-brands-whatsapp"></i></a>
     </div>
     <div class="contatos">
         <div class="whatsapp"><i class="fi fi-brands-whatsapp"></i> 19 99142-6480</div>
@@ -33,7 +33,7 @@
                     <li><a href="#sobrenos">Sobre Nós</a></li>
                     <li><a href="#equipamentos">Equipamentos</a></li>
                     <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#">Orçamento</a></li>
+                    <li><a href="#orcamento">Orçamento</a></li>
                 </ul>
             </nav>
 
@@ -45,7 +45,7 @@
                 <i class="fi fi-br-cross"></i>
             </div>
 
-            <button class="cta-header">Solicitar Orçamento</button>
+            <button class="cta-header"><a href="https://wa.me/19991426480">Solicitar Orçamento</a></button>
         </div>
     </header>
 
@@ -56,7 +56,8 @@
 
                 <p>Atendimento rápido, profissionais qualificados e soluções completas para o seu negócio.</p>
 
-                <button>Fale Conosco Agora <span>➔</span></i></button>
+                <button><a href="https://wa.me/19991426480
+">Fale Conosco Agora </a></button>
             </div>
             <div class="img--main">
                 <img src="assets/images/cozinha.png" alt="cozinha">
@@ -161,10 +162,11 @@
         </div>
     </section>
     <section id="servicos">
-         <h2>Serviços</h2>
-         <p>As imagens demonstram nosso compromisso com a excelência na manutenção de cozinhas industriais, garantindo o rigor técnico e a longevidade necessária para o desempenho superior dos seus equipamentos.</p>
+        <h2>Serviços</h2>
+        <p>As imagens demonstram nosso compromisso com a excelência na manutenção de cozinhas industriais, garantindo o
+            rigor técnico e a longevidade necessária para o desempenho superior dos seus equipamentos.</p>
         <div class="slider-container">
-           
+
             <div class="slider-track" id="sliderTrack">
                 <div class="slide">
                     <img src="assets/slides/slides1.jpeg" alt="Imagem 1">
@@ -230,11 +232,87 @@
 
             <button id="prevBtn" class="nav-button" aria-label="Anterior">&lt;</button>
             <button id="nextBtn" class="nav-button" aria-label="Próximo">&gt;</button>
-
         </div>
     </section>
 
-    <footer></footer>
+    <section id="orcamento">
+        <div class="container">
+            <div class="orcamento-content">
+                <h2>Solicite seu Orçamento Gratuito</h2>
+                <p>Preencha o formulário abaixo e nossa equipe entrará em contato rapidamente para
+                    oferecer a melhor solução em manutenção para sua cozinha industrial.</p>
+                <form id="budgetForm" class="orcamento-form">
+                    <div class="form-group">
+                        <label for="nome">Nome / Empresa*</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp*</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="servico">Tipo de Serviço Necessário*</label>
+                        <select id="servico" name="servico" required>
+                            <option value="" disabled selected>Selecione o Serviço</option>
+                            <option value="corretiva">Manutenção Corretiva (Urgente)
+                            </option>
+                            <option value="preventiva">Manutenção Preventiva</option>
+                            <option value="instalacao">Instalação de Equipamento</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="descricao">Descreva o Problema/Serviço*</label>
+                        <textarea id="descricao" name="descricao" rows="5" required
+                            placeholder="Ex: Fogão industrial com queimador entupido, Freezer não está gelando, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-form full-width">Enviar Solicitação de
+                        Orçamento</button>
+                    <div id="formMessage" class="message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-info">
+                    <img src="assets/images/claumixlogo.png" alt="Logo ClauMix Branco" class="footer-logo">
+                    <p>Especialistas em manutenção e instalação de equipamentos para cozinhas industriais. Atendimento
+                        ágil e seguro.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Navegação</h3>
+                    <ul>
+                        <li><a href="#body">Início</a></li>
+                        <li><a href="#sobrenos">Sobre Nós</a></li>
+                        <li><a href="#equipamentos">Equipamentos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Fale Conosco</h3>
+                    <p><i class="fi fi-brands-whatsapp"></i> 19 99142-6480</p>
+                    <p><i class="fi fi-rr-envelope"></i> claumixmanutencao@gmail.com</p>
+                    <p><i class="fi fi-rr-marker"></i> Atendemos Campinas e Região</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom-simple">
+                <p class="copyright">&copy; 2025 ClauMix - Manutenção Industrial. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 <script src="assets/js/script.js"></script>

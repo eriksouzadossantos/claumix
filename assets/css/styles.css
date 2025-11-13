@@ -28,6 +28,8 @@ iframe {
 
 :root {
     --color-principal: #ad4149;
+    --secondary-color: #ffffff;
+    --background-color: #f8f8f8;
 }
 
 .container {
@@ -383,7 +385,7 @@ section .servico p {
 
 /* SLIDERS */
 
-#servicos h2{
+#servicos h2 {
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
@@ -467,22 +469,196 @@ section .servico p {
     color: #333;
 }
 
-/* FIM DOS SLIDERS */
+/* FORMS */
 
-
-@media (max-width: 600px) {
-    .nav-button {
-        padding: 10px 5px;
-        font-size: 16px;
-    }
+#orcamento {
+    padding: 60px 0;
+    background-color: var(--background-color);
 }
 
-/* FIM DO SLIDER */
-footer {
-    height: 1000px;
+#orcamento .orcamento-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 15px;
 }
 
+#orcamento h2 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
 
+#orcamento p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.orcamento-form {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.orcamento-form input[type="text"],
+.orcamento-form input[type="tel"],
+.orcamento-form input[type="email"],
+.orcamento-form select,
+.orcamento-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.orcamento-form input:focus,
+.orcamento-form select:focus,
+.orcamento-form textarea:focus {
+    border-color: var(--color-principal);
+    outline: none;
+    box-shadow: 0 0 5px rgba(173, 65, 73, 0.5);
+}
+
+.orcamento-form textarea {
+    resize: vertical;
+}
+
+.cta-form {
+    background-color: var(--color-principal);
+    color: var(--secondary-color);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.cta-form:hover {
+    background-color: #923a41;
+    transform: translateY(-1px);
+}
+
+.message {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #e6ffe6;
+    color: green;
+    border: 1px solid green;
+}
+
+/* FIM DO FORMS */
+
+
+/* FOOTER */
+.main-footer {
+    background-color: #222;
+    color: var(--secondary-color);
+    padding: 40px 0 20px 0;
+}
+
+.main-footer h3 {
+    color: var(--color-principal);
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.main-footer p,
+.main-footer a,
+.main-footer i {
+    color: var(--secondary-color);
+    font-size: 15px;
+}
+
+.main-footer a:hover {
+    color: var(--color-principal);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: left;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
+}
+
+.footer-info p {
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links ul li a {
+    transition: color 0.3s ease;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-contact i {
+    font-size: 18px;
+    color: var(--color-principal);
+}
+
+.footer-bottom-simple {
+    text-align: center;
+    padding-top: 20px;
+    padding: 20px 15px 0 15px;
+}
+
+.copyright {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* FIM DO FOOTER */
 
 /* RESPONSIVIDADE */
 
@@ -619,6 +795,31 @@ footer {
     #equipamentos .equipamentos {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
+    }
+
+    .nav-button {
+        padding: 10px 5px;
+        font-size: 16px;
+    }
+
+    .orcamento-form {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+
+    .footer-info {
+        grid-column: 1 / -1; 
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin: 0 auto 10px auto;
     }
 
 }
@@ -778,7 +979,40 @@ footer {
         text-align: center;
         width: 100%;
     }
+
+    #orcamento h2 {
+        font-size: 28px;
+    }
+
+    .orcamento-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .form-group,
+    .form-group.full-width {
+        grid-column: 1 / 1;
+    }
+
+    .orcamento-form input,
+    .orcamento-form select,
+    .orcamento-form textarea {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; 
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-contact p {
+        justify-content: center;
+    }
 }
+
 
 @keyframes fadeIn {
     from {
