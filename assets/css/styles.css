@@ -12,12 +12,15 @@
     transition: all 0.3s linear;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
     max-width: 100%;
 }
 
-img, video, iframe {
+img,
+video,
+iframe {
     max-width: 100%;
     height: auto;
     display: block;
@@ -119,8 +122,8 @@ header nav ul {
 
 header nav ul li a {
     display: block;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-weight: bold;
     font-size: 15px;
     transition: all linear 0.25s;
@@ -376,9 +379,105 @@ section .servico p {
     margin: 0;
 }
 
-
 /* FIM DOS EQUIPAMENTOS */
 
+/* SLIDERS */
+
+#servicos h2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#servicos p {
+    text-align: center;
+    width: 650px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+
+.slider-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    margin: 0 auto;
+}
+
+.slider-track {
+    display: flex;
+    width: 1500%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: calc(100% / 15);
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.slide img {
+    width: 100%;
+    height: 500px;
+    display: block;
+    border-radius: 6px;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
+
+.nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.slide-info {
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* FIM DOS SLIDERS */
+
+
+@media (max-width: 600px) {
+    .nav-button {
+        padding: 10px 5px;
+        font-size: 16px;
+    }
+}
+
+/* FIM DO SLIDER */
 footer {
     height: 1000px;
 }
@@ -387,8 +486,13 @@ footer {
 
 /* RESPONSIVIDADE */
 
-@media (max-width: 1024px) {
+@media (min-width:769px) and (max-width: 1024px) {
     header .cta-header {
+        display: none !important;
+        visibility: hidden;
+    }
+
+    header .menu {
         display: none !important;
         visibility: hidden;
     }
@@ -397,12 +501,15 @@ footer {
 @media (min-width: 427px) and (max-width: 768px) {
     header .menu {
         display: flex;
-        /* garante que o ícone do menu apareça */
+    }
+
+    header .cta-header {
+        display: none !important;
+        visibility: hidden;
     }
 
     header nav {
         display: none;
-        /* menu fechado inicialmente */
         position: absolute;
         top: 100%;
         left: 0;
@@ -417,17 +524,14 @@ footer {
 
     header nav.active {
         display: flex;
-        /* menu abre ao adicionar .active */
     }
 
     header button.cta-header {
         display: none;
-        /* escondido até abrir o menu */
     }
 
     header button.cta-header.active {
         display: block;
-        /* aparece dentro do menu */
     }
 
     header button.active {
@@ -509,7 +613,7 @@ footer {
     }
 
     section .servico p {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     #equipamentos .equipamentos {
@@ -640,7 +744,7 @@ footer {
     }
 
     section .servico p {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     #equipamentos .equip h2 {
@@ -652,7 +756,8 @@ footer {
         font-size: 20px;
     }
 
-    #equipamentos .equip p {
+    #equipamentos .equip p,
+    #servicos p {
         text-align: center;
         width: 310px;
         margin: 0 auto;
